@@ -1,6 +1,18 @@
+.product-row{
+  display:flex;
+  flex-direction: row;
+  padding-top: 10px;
+  margin:10 10 10 10;
+
+}
+
 .product {
+  margin: auto;
+  border: 2px solid black;
    display: flex;
+   flex-direction: column;
    width:33%
+  
    
 }
 
@@ -17,8 +29,8 @@ img  {
 
     height: 200px;
     width: 100%;
-   
     margin-bottom: 15px;
+    object-fit: contain;
 
 }
 
@@ -28,6 +40,8 @@ img  {
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  margin:2px 2px 2px 2px;
+
 }
 
 .product__price {

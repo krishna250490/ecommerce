@@ -1,6 +1,8 @@
 import {AppBar, makeStyles, Toolbar, Button} from '@material-ui/core';
-import { NavLink} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import esite from "../images/esite.jpg";
+import {StateContext} from "../updateProvider";
+import React,{useContext} from "react";
 
 const useStyles = makeStyles({
     header:{
@@ -22,16 +24,15 @@ const useStyles = makeStyles({
 
 const Navbar = ()=>{
     const classes = useStyles();
+    const {cartItems} = useContext(StateContext);
 return(
     
    <AppBar className={classes.header} position = "sticky">
   <Toolbar>
+      <Link className={classes.tabs}  to ="/"><img className={classes.logo} src={esite}/></Link>
+      <Link className={classes.tabs}  to ="/">Home</Link>
+      <Link className={classes.tabs}  to ="/cart">cart({cartItems.length})</Link>
       
-      <NavLink className={classes.tabs}  to ="/"><img className={classes.logo} src={esite}/></NavLink>
-      <NavLink className={classes.tabs} to = "/addnewproduct">AddNewProduct</NavLink>
-      <NavLink className={classes.tabs} to ="/add">AddToCart</NavLink>
-      <NavLink className={classes.tabs} to ="/allproducts">AllProduct</NavLink>
-      <NavLink className={classes.tabs} to ="/checkout">Checkout</NavLink>
       <Button  color="inherit">Sign In</Button>
   </Toolbar>
    </AppBar>
