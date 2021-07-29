@@ -2,12 +2,15 @@ import React, { createContext, useReducer, useContext } from "react";
 
 const initialState = {
   cartItems:[],
+  user:null,
+
 };
 
 export const StateContext = createContext();
 
 const reducer = (state, action) => {
-    // console.log(action);
+    console.log(action);
+    console.log(state);
 
   switch (action.type) {
     case "Add":
@@ -29,6 +32,12 @@ const reducer = (state, action) => {
           ...state,
           cartItems: newItems
         }
+      
+    case "SET_USER":
+      return {
+        ...state,
+        user:action.user
+      }
 
     default:
       throw new Error(`unknown action ${action.type}`);
@@ -39,7 +48,7 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <StateContext.Provider value={{cartItems:state.cartItems, dispatch}}>
+    <StateContext.Provider value={{state, dispatch}}>
       {children}
     </StateContext.Provider>
   );

@@ -1,0 +1,10 @@
+.payment_container{
+    display:flex;
+    border-bottom: 1px solid lightgray;
+}
+
+.payment_section{
+    margin-left: 10px;
+    color:lightsalmon;
+    width:70%
+}

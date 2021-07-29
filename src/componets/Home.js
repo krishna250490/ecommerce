@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../service/api";
 import "./Product.css";
 import Product from "./Product";
+import FlipMove from 'react-flip-move';
 
 const products = [
   {
@@ -35,9 +36,11 @@ const products = [
 const Home=()=>{
   return (
     <main className="product-row">
+    
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
+      
     </main>
   );
 };
